@@ -1,0 +1,28 @@
+// Step 1: Expand only buttons in group3
+var groupToggle = document.getElementById('group5');
+if (groupToggle) {
+  var buttons = groupToggle.getElementsByClassName('toggle-btn');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].click();
+  }
+}
+
+// Step 2: Select "No" answers in group2, except for skipped questions
+var group = document.getElementById('group5');
+
+// Add the full text of the questions you want to skip here
+var skip = [
+  "Group 5 - Question 4",
+  "Have you travelled recently?",
+  "Are you currently on medication?"
+];
+
+var buttons = group.querySelectorAll('input[type="radio"][value="No"]');
+
+for (var i = 0; i < buttons.length; i++) {
+  var question = buttons[i].closest('.question');
+  var text = question?.querySelector('.question-text')?.textContent.trim();
+  if (!skip.includes(text)) {
+    buttons[i].click();
+  }
+}
