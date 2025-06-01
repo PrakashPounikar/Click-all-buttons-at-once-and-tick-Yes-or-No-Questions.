@@ -1,0 +1,17 @@
+var buttons = document.getElementsByClassName('toggle-btn');
+for (var i = 0; i < buttons.length; i++)  
+     buttons[i].click();
+
+var group = document.getElementById('group2');
+var skip = [
+  "Do you have any allergies?",
+  "Have you travelled recently?",
+  "Are you currently on medication?"
+];
+
+var buttons = group.querySelectorAll('input[type="radio"][value="No"]');
+for (var i = 0; i < buttons.length; i++) {
+  var q = buttons[i].closest('.question');
+  var t = q?.querySelector('.question-text')?.textContent.trim();
+  if (!skip.includes(t)) buttons[i].click();
+}
