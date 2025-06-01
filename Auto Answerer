@@ -1,0 +1,10 @@
+var buttons = document.getElementsByClassName('toggle-btn');
+for(var i = 0; i < buttons.length; i++)  
+     buttons[i].click();
+
+var group = document.getElementById('group2');
+
+var buttons = group.querySelectorAll('input[type="radio"][value="No"]');
+for (var i = 0; i < buttons.length; i++) {
+  buttons[i].click();
+}
